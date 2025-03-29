@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/ImNotSoftik/NeroChat/blob/master/logo.png" width="32%" height="32%"/>
+  <img src="https://github.com/Winds-Studio/NeroChat/blob/master/logo.png" width="32%" height="32%"/>
   <h1>NeroChat</h1>
   <h3>Effective chat system with colored text, ignore, whisper and chat logging, regex filters, anti-spam for anarchic servers</h3>
 
