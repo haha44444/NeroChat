@@ -25,7 +25,7 @@ repositories {
     }
 
     maven {
-        url = uri("https://ci.pluginwiki.us/plugin/repository/everything/")
+        url = uri("https://repo.bsdevelopment.org/releases/") // Leaf - Leaf config - ConfigurationMaster-API
     }
 }
 
