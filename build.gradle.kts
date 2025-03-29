@@ -24,8 +24,9 @@ repositories {
         url = uri("https://repo.extendedclip.com/content/repositories/placeholderapi/")
     }
 
+    // ConfigurationMaster-API repo
     maven {
-        url = uri("https://ci.pluginwiki.us/plugin/repository/everything/")
+        url = uri("https://repo.bsdevelopment.org/releases/")
     }
 }
 
