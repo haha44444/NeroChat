@@ -1,19 +1,19 @@
 plugins {
     `java-library`
     `maven-publish`
-    id("com.gradleup.shadow") version "8.3.0"
+    id("com.gradleup.shadow") version "8.3.5"
 }
 
 group = "me.softik.nerochat"
 version = "3.0.0-SNAPSHOT"
 description = "An advanced chat plugin for survival/anarchy servers."
-var url = "https://github.com/xGinko/NeroChat"
+var url = "https://github.com/Winds-Studio/NeroChat"
 
 repositories {
     mavenCentral()
 
     maven {
-        url = uri("https://papermc.io/repo/repository/maven-public/")
+        url = uri("https://repo.papermc.io/repository/maven-public/")
     }
 
     maven {

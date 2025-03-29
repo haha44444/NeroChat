@@ -1,7 +1,7 @@
 [versions]
 com-destroystokyo-paper-paper-api = "1.12.2-R0.1-SNAPSHOT"
 com-github-ben-manes-caffeine-caffeine = "2.9.3"
-com-github-thatsmusic99-configurationmaster-api = "v2.0.0-rc.1"
+com-github-thatsmusic99-configurationmaster-api = "v2.0.0-rc.3"
 com-google-code-findbugs-jsr305 = "3.0.2"
 com-ibm-icu-icu4j = "74.2"
 me-clip-placeholderapi = "2.11.6"
