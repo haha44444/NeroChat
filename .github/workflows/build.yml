@@ -1,0 +1,33 @@
+name: Build NeroChat
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    if: "github.actor != 'dependabot[bot]'"
+    steps:
+      - uses: actions/checkout@main
+      - name: Set up JDK 21
+        uses: actions/setup-java@main
+        with:
+          java-version: 21
+          distribution: zulu
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Build
+        run: ./gradlew build
+
+      - name: Upload NeroChat
+        uses: actions/upload-artifact@main
+        with:
+          name: NeroChat-Nightly
+          path: build/libs/*.jar
+
+      # TODO: Release it once the plugin is finished
