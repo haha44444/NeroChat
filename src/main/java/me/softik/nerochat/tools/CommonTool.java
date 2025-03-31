@@ -107,7 +107,7 @@ public class CommonTool {
         if (receiver.hasPermission("nerochat.playernamereply")) {
             builder.event(new ClickEvent(
                     ClickEvent.Action.SUGGEST_COMMAND,
-                    "/w " + ChatColor.stripColor(chatter.getDisplayName()) + " "
+                    "/whisper " + ChatColor.stripColor(chatter.getDisplayName()) + " "
             ));
 
             builder.event(new HoverEvent(
