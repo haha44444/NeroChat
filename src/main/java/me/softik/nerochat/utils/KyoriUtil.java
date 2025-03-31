@@ -10,7 +10,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class KyoriUtil {
-    private static final MiniMessage miniMessage = MiniMessage.miniMessage();
+
+    private static final MiniMessage MINI_MESSAGE = MiniMessage.miniMessage();
 
     /**
      * Parse a MiniMessage string into a BungeeCord BaseComponent[].
@@ -19,7 +20,7 @@ public class KyoriUtil {
      * @return The parsed message.
      */
     public static BaseComponent[] parseMiniMessage(String message) {
-        Component component = miniMessage.deserialize(message);
+        Component component = MINI_MESSAGE.deserialize(message);
         return BungeeComponentSerializer.get().serialize(component);
     }
 
@@ -30,14 +31,14 @@ public class KyoriUtil {
      * @return The parsed message.
      */
     public static String parseMiniMessageToLegacy(String message) {
-        Component component = miniMessage.deserialize(message);
+        Component component = MINI_MESSAGE.deserialize(message);
         return LegacyComponentSerializer.legacyAmpersand().serialize(component);
     }
 
     /**
      * Send message to player
      *
-     * @param player The player send to.
+     * @param player  The player send to.
      * @param message The message to send.
      */
     public static void sendMessage(Player player, BaseComponent[] message) {
@@ -47,7 +48,7 @@ public class KyoriUtil {
     /**
      * Send message to player
      *
-     * @param player The player send to.
+     * @param player  The player send to.
      * @param message The message to send.
      */
     public static void sendMessage(Player player, BaseComponent message) {
@@ -57,7 +58,7 @@ public class KyoriUtil {
     /**
      * Send message to player
      *
-     * @param player The player send to.
+     * @param player  The player send to.
      * @param message The message to send.
      */
     public static void sendMessage(Player player, TextComponent message) {
@@ -67,7 +68,7 @@ public class KyoriUtil {
     /**
      * Send message to sender
      *
-     * @param sender The sender send to.
+     * @param sender  The sender send to.
      * @param message The message to send.
      */
     public static void sendMessage(CommandSender sender, BaseComponent[] message) {
@@ -77,7 +78,7 @@ public class KyoriUtil {
     /**
      * Send message to sender
      *
-     * @param sender The sender send to.
+     * @param sender  The sender send to.
      * @param message The message to send.
      */
     public static void sendMessage(CommandSender sender, BaseComponent message) {
@@ -87,7 +88,7 @@ public class KyoriUtil {
     /**
      * Send message to sender
      *
-     * @param sender The sender send to.
+     * @param sender  The sender send to.
      * @param message The message to send.
      */
     public static void sendMessage(CommandSender sender, TextComponent message) {

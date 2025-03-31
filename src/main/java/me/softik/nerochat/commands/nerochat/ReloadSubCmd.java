@@ -19,7 +19,7 @@ public class ReloadSubCmd extends SubCommand {
 
     @Override
     public String syntax() {
-        return "/nerochat "+label();
+        return "/nerochat " + label();
     }
 
     @Override
@@ -29,7 +29,7 @@ public class ReloadSubCmd extends SubCommand {
             return;
         }
 
-        sender.sendMessage(ChatColor.AQUA + "Reloading "+ NeroChat.getInstance().getDescription().getName()+"...");
+        sender.sendMessage(ChatColor.AQUA + "Reloading " + NeroChat.getInstance().getDescription().getName() + "...");
         NeroChat.getInstance().reloadNeroChat();
         sender.sendMessage(ChatColor.GREEN + "Reload complete.");
     }

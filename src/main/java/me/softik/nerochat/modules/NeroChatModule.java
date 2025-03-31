@@ -12,8 +12,11 @@ import java.util.HashSet;
 public interface NeroChatModule {
 
     String name();
+
     void enable();
+
     boolean shouldEnable();
+
     void disable();
 
     HashSet<NeroChatModule> modules = new HashSet<>();

@@ -9,6 +9,5 @@ public class NeroLogUtil {
     public static void moduleLog(Level logLevel, String moduleName, String logMessage) {
         NeroChat.getLog().log(logLevel, "<" + moduleName + "> " + logMessage);
     }
-
 }
 

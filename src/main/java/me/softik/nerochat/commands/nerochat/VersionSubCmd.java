@@ -22,7 +22,7 @@ public class VersionSubCmd extends SubCommand {
 
     @Override
     public String syntax() {
-        return "/nerochat "+label();
+        return "/nerochat " + label();
     }
 
     @Override

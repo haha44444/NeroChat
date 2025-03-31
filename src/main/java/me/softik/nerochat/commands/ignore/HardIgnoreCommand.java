@@ -47,7 +47,7 @@ public class HardIgnoreCommand implements NeroChatCommand {
         Player player = (Player) sender;
 
         if (args.length == 0) {
-            sender.sendMessage(NeroChat.getLang(sender).usage + " "+label()+" " + NeroChat.getLang(sender).player_argument);
+            sender.sendMessage(NeroChat.getLang(sender).usage + " " + label() + " " + NeroChat.getLang(sender).player_argument);
             return true;
         }
 

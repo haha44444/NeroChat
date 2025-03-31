@@ -40,7 +40,8 @@ public class RegexCheck implements SpamCheck, Listener {
         final String messageLowerCase = plainTextMessage.toLowerCase(); // Prevents a bypass with capitalized characters
         for (Pattern bannedRegex : bannedRegex) {
             if (bannedRegex.matcher(messageLowerCase).find()) {
-                if (logIsEnabled) NeroChat.getLog().info("Player "+player.getName()+" sent a message matching regex: '"+bannedRegex+"'");
+                if (logIsEnabled)
+                    NeroChat.getLog().info("Player " + player.getName() + " sent a message matching regex: '" + bannedRegex + "'");
                 return violationIncrement;
             }
         }

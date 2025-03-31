@@ -17,6 +17,7 @@ import java.util.UUID;
 
 @RequiredArgsConstructor
 public class ConfigTool {
+
     private final NeroChat plugin;
     private final File dataFile;
     private FileConfiguration dataConfig;
