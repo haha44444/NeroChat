@@ -163,7 +163,8 @@ public class CommonTool {
         for (Player player : plugin.getServer().getOnlinePlayers()) {
             final String name = player.getName();
 
-            if (name.startsWith(prefix)) {
+            if (name.length() > prefix.length()
+                    && name.regionMatches(true, 0, prefix, 0, prefix.length())) {
                 list.add(name);
             }
         }
