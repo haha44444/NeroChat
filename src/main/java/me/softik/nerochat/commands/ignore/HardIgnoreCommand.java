@@ -11,7 +11,6 @@ import org.bukkit.entity.Player;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class HardIgnoreCommand implements NeroChatCommand {
 
@@ -31,7 +30,7 @@ public class HardIgnoreCommand implements NeroChatCommand {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         if (args.length == 1) {
-            return plugin.getServer().getOnlinePlayers().stream().map(Player::getName).distinct().collect(Collectors.toList());
+            return CommonTool.getPlayerListByPrefix(plugin, args[0]);
         } else {
             return NO_COMPLETIONS;
         }

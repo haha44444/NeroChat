@@ -10,7 +10,6 @@ import org.bukkit.entity.Player;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class WhisperCommand implements NeroChatCommand {
 
@@ -30,7 +29,7 @@ public class WhisperCommand implements NeroChatCommand {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         if (args.length == 1) {
-            return plugin.getServer().getOnlinePlayers().stream().map(Player::getName).distinct().collect(Collectors.toList());
+            return CommonTool.getPlayerListByPrefix(plugin, args[0]);
         } else {
             return NO_COMPLETIONS;
         }
