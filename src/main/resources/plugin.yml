@@ -20,6 +20,7 @@ commands:
     aliases:
       - tell
       - msg
+      - w
   reply:
     description: Reply to the last message someone sent to you!
     permission: nerochat.reply
