@@ -64,7 +64,7 @@ public class LanguageCache {
         try {
             lang.save();
         } catch (Exception e) {
-            plugin.getLogger().severe("Failed to save language file: "+ langYML.getName() +" - " + e.getLocalizedMessage());
+            plugin.getLogger().severe("Failed to save language file: " + langYML.getName() + " - " + e.getLocalizedMessage());
         }
     }
 

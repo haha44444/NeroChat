@@ -25,8 +25,8 @@ public class BannedWordsCheck implements SpamCheck, Listener {
         this.logIsEnabled = config.getBoolean("anti-spam.checks.banned-words.log-detect", true);
         this.isCaseSensitive = config.getBoolean("anti-spam.checks.banned-words.case-sensitive", false);
         this.bannedWords = config.getListFile("antispam-words.yml", "words-or-phrases",
-                Collections.singletonList("what's 2+2"),
-                "These are checked using a simple String#contains method")
+                        Collections.singletonList("what's 2+2"),
+                        "These are checked using a simple String#contains method")
                 .stream()
                 .map(words -> isCaseSensitive ? words : words.toLowerCase())
                 .collect(Collectors.toCollection(HashSet::new));
@@ -43,27 +43,27 @@ public class BannedWordsCheck implements SpamCheck, Listener {
         for (String bannedWord : bannedWords) {
             if (message.contains(bannedWord)) {
                 if (logIsEnabled)
-                    NeroChat.getLog().info("Player "+player.getName()+" sent a message containing banned word: '"+bannedWord+"'");
+                    NeroChat.getLog().info("Player " + player.getName() + " sent a message containing banned word: '" + bannedWord + "'");
 
                 return violationIncrement;
             } else if (NeroStringUtil.revertLeet(message).contains(bannedWord)) {
                 if (logIsEnabled)
-                    NeroChat.getLog().info("Player "+player.getName()+" sent a message containing banned word: '"+bannedWord+"' (l33t)");
+                    NeroChat.getLog().info("Player " + player.getName() + " sent a message containing banned word: '" + bannedWord + "' (l33t)");
 
                 return violationIncrement;
             } else if (NeroStringUtil.stripAccents(message).contains(bannedWord)) {
                 if (logIsEnabled)
-                    NeroChat.getLog().info("Player "+player.getName()+" sent a message containing banned word: '"+bannedWord+"' (accents)");
+                    NeroChat.getLog().info("Player " + player.getName() + " sent a message containing banned word: '" + bannedWord + "' (accents)");
 
                 return violationIncrement;
             } else if (NeroStringUtil.translateUnicode(message).contains(bannedWord)) {
                 if (logIsEnabled)
-                    NeroChat.getLog().info("Player "+player.getName()+" sent a message containing banned word: '"+bannedWord+"' (unicode)");
+                    NeroChat.getLog().info("Player " + player.getName() + " sent a message containing banned word: '" + bannedWord + "' (unicode)");
 
                 return violationIncrement;
             } else if (NeroStringUtil.translateLatin(message).contains(bannedWord)) {
                 if (logIsEnabled)
-                    NeroChat.getLog().info("Player "+player.getName()+" sent a message containing banned word: '"+bannedWord+"' (latin)");
+                    NeroChat.getLog().info("Player " + player.getName() + " sent a message containing banned word: '" + bannedWord + "' (latin)");
 
                 return violationIncrement;
             }

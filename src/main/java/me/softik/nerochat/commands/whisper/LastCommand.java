@@ -31,7 +31,7 @@ public class LastCommand implements NeroChatCommand {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
-            sender.sendMessage(NeroChat.getLang(sender).usage + " /"+label()+" " + NeroChat.getLang(sender).message_argument);
+            sender.sendMessage(NeroChat.getLang(sender).usage + " /" + label() + " " + NeroChat.getLang(sender).message_argument);
             return false;
         }
 

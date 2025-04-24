@@ -96,7 +96,7 @@ public class RegexFilterPublic implements NeroChatModule, Listener {
                         player.getName(), sb.toString().trim()));
                 NeroLogUtil.moduleLog(Level.WARNING, name(), "Regex by which the message was cancelled: '" +
                         (bannedRegex.pattern().length() > 100 ? bannedRegex.pattern().substring(0, 100) + "...(" +
-                        (bannedRegex.pattern().length() - 100) + " more characters)" : bannedRegex.pattern()) + "'");
+                                (bannedRegex.pattern().length() - 100) + " more characters)" : bannedRegex.pattern()) + "'");
             }
 
             break;

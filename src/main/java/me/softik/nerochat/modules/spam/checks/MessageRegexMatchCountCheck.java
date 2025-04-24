@@ -48,7 +48,7 @@ public class MessageRegexMatchCountCheck implements SpamCheck, Listener {
 
         if (count >= maxMatchesPerMessage) {
             if (logIsEnabled)
-                NeroChat.getLog().info("Player " + player.getName() + " sent a message matching one or more regexes " + (maxMatchesPerMessage-count) + " times more than allowed.");
+                NeroChat.getLog().info("Player " + player.getName() + " sent a message matching one or more regexes " + (maxMatchesPerMessage - count) + " times more than allowed.");
             return violationIncrement;
         }
 

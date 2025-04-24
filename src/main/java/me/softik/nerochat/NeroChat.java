@@ -34,17 +34,23 @@ import java.util.zip.ZipEntry;
 @Getter
 public final class NeroChat extends JavaPlugin implements Listener {
 
-    @Getter private static NeroChat instance;
+    @Getter
+    private static NeroChat instance;
     private static Config config;
     private static HashMap<String, LanguageCache> languageCacheMap;
     private static Logger logger;
     private static Metrics metrics;
 
-    @Getter private static TempDataTool tempDataTool;
-    @Getter private static SoftIgnoreTool softignoreTool;
-    @Getter private static CacheTool cacheTool;
-    @Getter private static IgnoreTool ignoreTool;
-    @Getter private static ConfigTool configTool;
+    @Getter
+    private static TempDataTool tempDataTool;
+    @Getter
+    private static SoftIgnoreTool softignoreTool;
+    @Getter
+    private static CacheTool cacheTool;
+    @Getter
+    private static IgnoreTool ignoreTool;
+    @Getter
+    private static ConfigTool configTool;
 
     @Override
     public void onEnable() {
@@ -111,7 +117,7 @@ public final class NeroChat extends JavaPlugin implements Listener {
             NeroChatModule.reloadModules();
             config.saveConfig();
         } catch (Exception e) {
-            logger.severe("Error loading config! - "+e.getLocalizedMessage());
+            logger.severe("Error loading config! - " + e.getLocalizedMessage());
         }
     }
 
@@ -149,7 +155,7 @@ public final class NeroChat extends JavaPlugin implements Listener {
                     .filter(name -> name.startsWith("lang/") && name.endsWith(".yml"))
                     .collect(Collectors.toSet());
         } catch (IOException e) {
-            logger.severe("Failed getting default lang files! - "+e.getLocalizedMessage());
+            logger.severe("Failed getting default lang files! - " + e.getLocalizedMessage());
             return Collections.emptySet();
         }
     }

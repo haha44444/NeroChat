@@ -83,7 +83,7 @@ public class Config {
                 plugin.getLogger().warning("Cant register color '" + configuredColor + "' because its not an enum of ChatColor " +
                         "(https://jd.papermc.io/paper/1.12/org/bukkit/ChatColor.html)");
             } catch (Throwable t) {
-                plugin.getLogger().warning("Cant register color '" + configuredColor + "' because something unexpected happened - "+t.getLocalizedMessage());
+                plugin.getLogger().warning("Cant register color '" + configuredColor + "' because something unexpected happened - " + t.getLocalizedMessage());
             }
         }
     }
@@ -171,14 +171,14 @@ public class Config {
     public ConfigSection getConfigSection(String path, Map<String, Object> defaultKeyValue) {
         config.addDefault(path, null);
         config.makeSectionLenient(path);
-        defaultKeyValue.forEach((string, object) -> config.addExample(path+"."+string, object));
+        defaultKeyValue.forEach((string, object) -> config.addExample(path + "." + string, object));
         return config.getConfigSection(path);
     }
 
     public ConfigSection getConfigSection(String path, Map<String, Object> defaultKeyValue, String comment) {
         config.addDefault(path, null, comment);
         config.makeSectionLenient(path);
-        defaultKeyValue.forEach((string, object) -> config.addExample(path+"."+string, object));
+        defaultKeyValue.forEach((string, object) -> config.addExample(path + "." + string, object));
         return config.getConfigSection(path);
     }
 
@@ -189,7 +189,7 @@ public class Config {
             list.save();
             return list.getStringList(path);
         } catch (Exception e) {
-            plugin.getLogger().severe("Error handling list file: "+fileName+"! - " + e.getLocalizedMessage());
+            plugin.getLogger().severe("Error handling list file: " + fileName + "! - " + e.getLocalizedMessage());
             e.printStackTrace();
             return Collections.emptyList();
         }
@@ -202,7 +202,7 @@ public class Config {
             list.save();
             return list.getStringList(path);
         } catch (Exception e) {
-            plugin.getLogger().severe("Error handling list file: "+fileName+"! - " + e.getLocalizedMessage());
+            plugin.getLogger().severe("Error handling list file: " + fileName + "! - " + e.getLocalizedMessage());
             e.printStackTrace();
             return Collections.emptyList();
         }

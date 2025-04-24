@@ -13,6 +13,7 @@ import java.util.UUID;
 
 @RequiredArgsConstructor
 public class CacheTool {
+
     private final HashMap<UUID, PlayerData> map = new HashMap<>();
     private final NeroChat plugin;
 

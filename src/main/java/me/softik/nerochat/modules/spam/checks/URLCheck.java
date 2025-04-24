@@ -26,8 +26,8 @@ public class URLCheck implements SpamCheck, Listener {
         this.preventOnlyAtSpawn = config.getBoolean("anti-spam.checks.links.only-check-players-around-spawn", true);
         this.radius = config.getInt("anti-spam.checks.links.spawn-radius", 1000);
         this.linkRegexes = config.getList("anti-spam.checks.links.link-regex-list", Arrays.asList(
-                "(https?://(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?://(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})",
-                "[-a-zA-Z0-9@:%._+~#=]{1,256}\\.[a-zA-Z()]{1,6}\\b([-a-zA-Z()@:%_+.~#?&/=]*)"))
+                        "(https?://(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?://(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})",
+                        "[-a-zA-Z0-9@:%._+~#=]{1,256}\\.[a-zA-Z()]{1,6}\\b([-a-zA-Z()@:%_+.~#?&/=]*)"))
                 .stream()
                 .map(Pattern::compile)
                 .collect(Collectors.toCollection(HashSet::new));
@@ -40,7 +40,8 @@ public class URLCheck implements SpamCheck, Listener {
 
     @Override
     public double getViolationIncrement(String message, Player player) {
-        if (preventOnlyAtSpawn && player.getLocation().distance(player.getWorld().getSpawnLocation()) > radius) return 0;
+        if (preventOnlyAtSpawn && player.getLocation().distance(player.getWorld().getSpawnLocation()) > radius)
+            return 0;
 
         double vl = 0;
 
@@ -48,7 +49,7 @@ public class URLCheck implements SpamCheck, Listener {
             for (Pattern regex : linkRegexes) {
                 if (regex.matcher(word).find()) {
                     if (logIsEnabled)
-                        NeroChat.getLog().info("Player "+player.getName()+" sent a message containing a link.");
+                        NeroChat.getLog().info("Player " + player.getName() + " sent a message containing a link.");
                     vl += violationIncrement;
                 }
             }

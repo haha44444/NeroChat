@@ -9,6 +9,7 @@ import java.util.Set;
 public interface SpamCheck {
 
     boolean shouldEnable();
+
     double getViolationIncrement(String message, Player player);
 
     Set<SpamCheck> activeChecks = new HashSet<>();

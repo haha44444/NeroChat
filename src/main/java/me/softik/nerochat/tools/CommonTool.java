@@ -18,7 +18,9 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.MetadataValue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 public class CommonTool {
@@ -107,7 +109,7 @@ public class CommonTool {
         if (receiver.hasPermission("nerochat.playernamereply")) {
             builder.event(new ClickEvent(
                     ClickEvent.Action.SUGGEST_COMMAND,
-                    "/w " + ChatColor.stripColor(chatter.getDisplayName()) + " "
+                    "/whisper " + ChatColor.stripColor(chatter.getDisplayName()) + " "
             ));
 
             builder.event(new HoverEvent(
@@ -153,5 +155,20 @@ public class CommonTool {
             if (meta.asBoolean()) return true;
         }
         return false;
+    }
+
+    public static List<String> getPlayerListByPrefix(NeroChat plugin, String prefix) {
+        List<String> list = new ArrayList<>();
+
+        for (Player player : plugin.getServer().getOnlinePlayers()) {
+            final String name = player.getName();
+
+            if (name.length() > prefix.length()
+                    && name.regionMatches(true, 0, prefix, 0, prefix.length())) {
+                list.add(name);
+            }
+        }
+
+        return list;
     }
 }

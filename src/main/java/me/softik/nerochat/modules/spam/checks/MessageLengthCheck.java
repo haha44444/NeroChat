@@ -28,7 +28,7 @@ public class MessageLengthCheck implements SpamCheck, Listener {
     public double getViolationIncrement(String message, Player player) {
         if (message.length() > characterLimit) {
             if (logIsEnabled)
-                NeroChat.getLog().info(player.getName()+" sent a message that exceeded the limit by " +(message.length()-characterLimit)+" character(s).");
+                NeroChat.getLog().info(player.getName() + " sent a message that exceeded the limit by " + (message.length() - characterLimit) + " character(s).");
             return violationIncrement;
         }
         return 0;

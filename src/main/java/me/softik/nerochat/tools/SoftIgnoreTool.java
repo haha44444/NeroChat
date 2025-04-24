@@ -16,6 +16,7 @@ import java.util.UUID;
 
 @RequiredArgsConstructor
 public class SoftIgnoreTool {
+
     private final NeroChat plugin;
     private final Map<UUID, List<UUID>> map = new HashMap<>();
 

@@ -32,13 +32,13 @@ public class RegexFilterWhisper implements NeroChatModule, Listener {
         Config config = NeroChat.getConfiguration();
         config.getMaster().addComment("audit.regex-filter.enable",
                 "Filtering chat messages using regular expressions.\n" +
-                "If you don't know how to create them, you can use ChatGPT");
+                        "If you don't know how to create them, you can use ChatGPT");
         this.do_logging = config.getBoolean("audit.regex-filter.whisper.logging", false);
         this.notify_player = config.getBoolean("audit.regex-filter.whisper.notify-player", true);
         this.silent_mode = config.getBoolean("audit.regex-filter.whisper.silent-mode", true);
         this.case_sensitive = config.getBoolean("audit.regex-filter.whisper.case-sensitive", false);
         this.banned_regex = config.getList("audit.regex-filter.whisper.banned-regex", Collections.singletonList("^This is a(.*)banned message"),
-                "Prevents any message that starts with \"This is a\" and ends with \"banned message\"")
+                        "Prevents any message that starts with \"This is a\" and ends with \"banned message\"")
                 .stream()
                 .map(regex -> case_sensitive ? Pattern.compile(regex) : Pattern.compile(regex, Pattern.CASE_INSENSITIVE))
                 .collect(Collectors.toCollection(HashSet::new));
@@ -103,7 +103,7 @@ public class RegexFilterWhisper implements NeroChatModule, Listener {
                         player.getName(), receiver.getName(), sb.toString().trim()));
                 NeroLogUtil.moduleLog(Level.WARNING, name(), "Regex by which the message was cancelled: '" +
                         (bannedRegex.pattern().length() > 100 ? bannedRegex.pattern().substring(0, 100) + "...(" +
-                        (bannedRegex.pattern().length() - 100) + " more characters)" : bannedRegex.pattern()) + "'");
+                                (bannedRegex.pattern().length() - 100) + " more characters)" : bannedRegex.pattern()) + "'");
             }
 
             break;
